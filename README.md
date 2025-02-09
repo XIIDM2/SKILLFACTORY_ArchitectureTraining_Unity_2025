@@ -1,2 +1,2 @@
 # ArchitectureTrainingUnityProject2025
- For SkillFactory Course
+ This project was created for Skillfactory homework review.
