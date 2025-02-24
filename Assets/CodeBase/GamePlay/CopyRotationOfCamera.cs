@@ -14,7 +14,7 @@ public class CopyRotationOfCamera : MonoBehaviour
 
     private void Update()
     {
-        if (!gameFactory.FollowCamera) return;
+        if (gameFactory == null || !gameFactory.FollowCamera) return;
 
         transform.LookAt(transform.position + gameFactory.FollowCamera.transform.rotation * Vector3.forward, gameFactory.FollowCamera.transform.rotation * Vector3.up);
     }

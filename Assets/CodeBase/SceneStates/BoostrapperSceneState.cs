@@ -11,6 +11,7 @@ using CodeBase.Infrastructure.Services.SceneStates;
 using CodeBase.Infrastructure.StateMachines;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
@@ -37,7 +38,7 @@ namespace CodeBase.Infrastructure.SceneStates
             this.progressSaver = progressSaver;
         }
 
-        public void Enter()
+        public async void Enter()
         {
             ClearProgressObjectsList();
 
@@ -45,7 +46,7 @@ namespace CodeBase.Infrastructure.SceneStates
 
             SpawnEnemies();
 
-            InitializeHero();
+            await InitializeHeroAsync();
 
             LoadProgress();
 
@@ -85,13 +86,16 @@ namespace CodeBase.Infrastructure.SceneStates
             }
         }
 
-        private void InitializeHero()
+        private async Task InitializeHeroAsync()
         {
             inputService.IsEnabled = true;
 
-            gameFactory.CreateHero(sceneConfig.HeroSpawnPosition, Quaternion.identity);
-            gameFactory.CreateVirtualJoyStick();
-            gameFactory.CreateFollowCamera().SetTarget(gameFactory.HeroObject.transform);
+            await gameFactory.CreateHeroAsync(sceneConfig.HeroSpawnPosition, Quaternion.identity);
+
+            await gameFactory.CreateVirtualJoyStick();
+
+            FollowCamera followCamera = await gameFactory.CreateFollowCamera();
+            followCamera.SetTarget(gameFactory.HeroObject.transform);
         }
 
     }

@@ -7,8 +7,11 @@ using CodeBase.Infrastructure.Services.ProgressSavers;
 using CodeBase.UI.Elements;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace CodeBase.Infrastructure.Services.Factory
 {
@@ -36,10 +39,10 @@ namespace CodeBase.Infrastructure.Services.Factory
 
         public FollowCamera FollowCamera {  get; private set; }
 
-        public GameObject CreateHero(Vector3 position, Quaternion rotation)
+        public async Task<GameObject> CreateHeroAsync(Vector3 position, Quaternion rotation)
         {
-            GameObject heroPrefab = assetsProvider.GetPrefab<GameObject>(AssetsPath.HeroPrefabPath);
-            HeroObject = dIcontainer.Instantiate(heroPrefab);
+
+            HeroObject = await InstantiateAndInject(AssetsAdress.HeroPrefabAdress);
 
             HeroObject.transform.SetPositionAndRotation(position, rotation);
 
@@ -52,11 +55,15 @@ namespace CodeBase.Infrastructure.Services.Factory
             return HeroObject;
         }
 
-        public GameObject CreateEnemy(EnemyID enemyID, Vector3 position)
+        public async Task<GameObject> CreateEnemy(EnemyID enemyID, Vector3 position)
         {
             EnemyConfig enemyConfig = configProvider.GetEnemyConfig(enemyID);
-            GameObject enemyPrefab = enemyConfig.EnemyPrefab;
+            AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(enemyConfig.EnemyPrefabReference);
+            GameObject enemyPrefab = await handle.Task;
+
             GameObject enemy = dIcontainer.Instantiate(enemyPrefab);
+
+            Addressables.Release(handle);
 
             enemy.transform.position = position;
 
@@ -71,24 +78,35 @@ namespace CodeBase.Infrastructure.Services.Factory
 
         }
 
-        public VirtualJoyStick CreateVirtualJoyStick()
+        public async Task<VirtualJoyStick> CreateVirtualJoyStick()
         {
-            GameObject virtualJoyStickPrefab = assetsProvider.GetPrefab<GameObject>(AssetsPath.VirtualJoyStickPrefabPath);
-            VirtualJoyStick = dIcontainer.Instantiate(virtualJoyStickPrefab).GetComponent<VirtualJoyStick>();
+            GameObject virtualJoyStickPrefab = await InstantiateAndInject(AssetsAdress.VirtualJoyStickPrefabAdress);
+            VirtualJoyStick = virtualJoyStickPrefab.GetComponent<VirtualJoyStick>();
 
             return VirtualJoyStick;
         }
 
-        public FollowCamera CreateFollowCamera()
+        public async Task<FollowCamera> CreateFollowCamera()
         {
-            GameObject followCameraPrefab = assetsProvider.GetPrefab<GameObject>(AssetsPath.FollowCameraPrefabPath);
-            FollowCamera = dIcontainer.Instantiate(followCameraPrefab).GetComponent<FollowCamera>();
+            GameObject followCameraPrefab = await InstantiateAndInject(AssetsAdress.FollowCameraPrefabAdress);
+            FollowCamera = followCameraPrefab.GetComponent<FollowCamera>();
 
             //FollowCamera.SetTarget(Hero.transform);
 
             return FollowCamera;
         }
 
+        private async Task<GameObject> InstantiateAndInject(string adress)
+        {
+            AsyncOperationHandle<GameObject> handle = Addressables.LoadAssetAsync<GameObject>(adress);
 
+            GameObject prefab = await handle.Task;
+
+            GameObject gameObjectToInstantiate = dIcontainer.Instantiate(prefab);
+
+            Addressables.Release(handle);
+
+            return gameObjectToInstantiate;
+        }
     }
 }

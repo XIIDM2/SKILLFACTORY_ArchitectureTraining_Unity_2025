@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace CodeBase.Configs
 {
@@ -16,8 +17,7 @@ namespace CodeBase.Configs
         public float MovementSpeed;
         public float StopDistance;
         public float MaxHealth;
-
-        public GameObject EnemyPrefab;
+        public AssetReferenceGameObject EnemyPrefabReference;
     }
 
 }

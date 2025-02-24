@@ -19,4 +19,8 @@ MonoBehaviour:
   MovementSpeed: 3
   StopDistance: 1.2
   MaxHealth: 50
-  EnemyPrefab: {fileID: 8963377282109035680, guid: ec94f327acd3c6d4f9826bf5b24c7289, type: 3}
+  EnemyPrefabReference:
+    m_AssetGUID: ec94f327acd3c6d4f9826bf5b24c7289
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
