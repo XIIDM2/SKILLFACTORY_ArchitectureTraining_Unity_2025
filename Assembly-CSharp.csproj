@@ -58,28 +58,85 @@
     <Analyzer Include="D:\Unity\Unity Editor\2022.3.8f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroDeath.cs" />
+    <Compile Include="Assets\CodeBase\SceneStates\ResearchSceneState.cs" />
+    <Compile Include="Assets\CodeBase\Services\ProgressSaver\ProgressSaver.cs" />
     <Compile Include="Assets\CodeBase\Legacy\FollowCamera.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyAnimateByNavMeshAgent.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroGold.cs" />
     <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroInput.cs" />
     <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroMovement.cs" />
     <Compile Include="Assets\CodeBase\BoostTrappers\GameBoostTrapper.cs" />
+    <Compile Include="Assets\CodeBase\Configs\Scene\SceneConfig.cs" />
     <Compile Include="Assets\CodeBase\Installers\SceneInstaller.cs" />
+    <Compile Include="Assets\CodeBase\SceneStates\BattleSceneState.cs" />
+    <Compile Include="Assets\CodeBase\UI\Common\Services\Factory\UIFactory.cs" />
+    <Compile Include="Assets\CodeBase\UI\Common\WindowBase.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyHealth.cs" />
     <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroAnimator.cs" />
     <Compile Include="Assets\CodeBase\Services\GameStateMachine\IGameStateSwitcher.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Health.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroHealth.cs" />
+    <Compile Include="Assets\CodeBase\UI\Common\PresenterWindowBase.cs" />
+    <Compile Include="Assets\CodeBase\SceneStates\DefeatSceneState.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyFollowHero.cs" />
+    <Compile Include="Assets\CodeBase\GameStates\LoadMainMenuState.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Coin\Coin.cs" />
+    <Compile Include="Assets\CodeBase\UI\Windows\LevelResultWindow.cs" />
+    <Compile Include="Assets\CodeBase\UI\Common\Services\WindowProvider\IWindowProvider.cs" />
+    <Compile Include="Assets\CodeBase\Constants.cs" />
     <Compile Include="Assets\CodeBase\AssetsPath.cs" />
+    <Compile Include="Assets\CodeBase\SceneStates\VictorySceneState.cs" />
+    <Compile Include="Assets\CodeBase\UI\Windows\MainMenuWindow.cs" />
+    <Compile Include="Assets\CodeBase\UI\Common\Services\Factory\IUIFactory.cs" />
     <Compile Include="Assets\CodeBase\Services\Input\InputService.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\IHealthRegeneratable.cs" />
     <Compile Include="Assets\CodeBase\Services\Factory\IGameFactory.cs" />
+    <Compile Include="Assets\CodeBase\UI\Elements\HealthBar.cs" />
+    <Compile Include="Assets\CodeBase\UI\Presenters\LevelResultPresenter.cs" />
     <Compile Include="Assets\CodeBase\BoostTrappers\SceneBoostTrapper.cs" />
+    <Compile Include="Assets\CodeBase\DATA\HeroStats.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Spawners\EnemySpawner.cs" />
     <Compile Include="Assets\CodeBase\Services\SceneStateMachine\ISceneStateSwitcher.cs" />
     <Compile Include="Assets\CodeBase\GameStates\GameBoostTrapperState.cs" />
+    <Compile Include="Assets\CodeBase\Configs\Enemy\EnemyConfig.cs" />
+    <Compile Include="Assets\CodeBase\UI\Common\Services\WindowProvider\WindowProvider.cs" />
+    <Compile Include="Assets\CodeBase\Services\ProgressSaver\IProgressLoadHandler.cs" />
     <Compile Include="Assets\CodeBase\SceneStates\BoostrapperSceneState.cs" />
     <Compile Include="Assets\CodeBase\GameStates\LoadNextSceneState.cs" />
+    <Compile Include="Assets\CodeBase\DATA\PlayerProgress.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\EnemiesInBattleRange.cs" />
+    <Compile Include="Assets\CodeBase\Services\ConfigsProviders\ConfigProvider.cs" />
+    <Compile Include="Assets\CodeBase\UI\Elements\VirtualJoyStick.cs" />
     <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroSpawnPoint.cs" />
     <Compile Include="Assets\CodeBase\Services\Factory\GameFactory.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyMeleeAttack.cs" />
+    <Compile Include="Assets\CodeBase\Services\ConfigsProviders\IConfigProvider.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\FinishPoint.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyID.cs" />
     <Compile Include="Assets\CodeBase\Services\SceneStateMachine\SceneStateMachine.cs" />
-    <Compile Include="Assets\CodeBase\Legacy\VirtualJoyStick.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyAnimator.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyPersueHero.cs" />
+    <Compile Include="Assets\CodeBase\UI\Elements\HeroGoldText.cs" />
+    <Compile Include="Assets\CodeBase\UI\Windows\WindowID.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Hero\HeroMeleeAttack.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\CopyRotationOfCamera.cs" />
     <Compile Include="Assets\CodeBase\Installers\GameInstaller.cs" />
+    <Compile Include="Assets\Resources\Configs\Enemies\IEnemyConfigInstaller.cs" />
+    <Compile Include="Assets\CodeBase\Services\SceneStateMachine\SceneStateMachineTicker.cs" />
+    <Compile Include="Assets\CodeBase\Services\ProgressSaver\IProgressSaver.cs" />
     <Compile Include="Assets\CodeBase\Services\Input\IInputService.cs" />
+    <Compile Include="Assets\CodeBase\Services\PlayerProgressProvider\ProgressProvider.cs" />
+    <Compile Include="Assets\CodeBase\Services\PlayerProgressProvider\IProgressProvider.cs" />
+    <Compile Include="Assets\CodeBase\UI\Presenters\MainMenuPresenter.cs" />
+    <Compile Include="Assets\CodeBase\Services\ProgressSaver\IProgressBeforeSaveHandler.cs" />
+    <Compile Include="Assets\CodeBase\GamePlay\Enemies\EnemyDeath.cs" />
     <Compile Include="Assets\CodeBase\Services\GameStateMachine\GameStateMachine.cs" />
+    <Compile Include="Assets\CodeBase\Configs\Scene\WindowConfig.cs" />
+    <Compile Include="Assets\CodeBase\UI\Elements\HealthText.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\ThirdParty\DavePixel\ReadMe!.rtf.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -712,17 +769,53 @@
     <Reference Include="System.Xml.Serialization">
       <HintPath>D:\Unity\Unity Editor\2022.3.8f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.Xml.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.AI.Navigation">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ResourceManager">
+      <HintPath>Library\ScriptAssemblies\Unity.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Shared.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ScriptableBuildPipeline">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualStudio.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Core.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VisualScripting.Flow.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
       <HintPath>Library\ScriptAssemblies\Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection">
       <HintPath>Library\ScriptAssemblies\Unity.TestTools.CodeCoverage.Editor.OpenCover.Mono.Reflection.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.SettingsProvider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.SettingsProvider.Editor.dll</HintPath>
@@ -739,47 +832,38 @@
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Updater">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Updater.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Addressables.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualScripting.State.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Shared.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Shared.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Core">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VisualScripting.Core.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Core.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
+    <Reference Include="Unity.AI.Navigation.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
       <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.State.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
+      <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.VSCode.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.dll</HintPath>
+    <Reference Include="Unity.ScriptableBuildPipeline.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ScriptableBuildPipeline.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.VisualScripting.Flow.Editor">
-      <HintPath>Library\ScriptAssemblies\Unity.VisualScripting.Flow.Editor.dll</HintPath>
+    <Reference Include="Unity.Addressables">
+      <HintPath>Library\ScriptAssemblies\Unity.Addressables.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

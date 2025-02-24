@@ -1,8 +1,10 @@
+using CodeBase.DATA;
+using CodeBase.Infrastructure.Services.ProgressSavers;
 using UnityEngine;
 
 namespace CodeBase.GamePlay.Hero
 {
-    public class HeroMovement : MonoBehaviour
+    public class HeroMovement : MonoBehaviour, IProgressLoadHandler
     {
         [SerializeField] private CharacterController characterController;
         [SerializeField] private Transform viewTransform;
@@ -10,6 +12,12 @@ namespace CodeBase.GamePlay.Hero
         [SerializeField] private float movementSpeed;
 
         private Vector3 directionControl;
+        public Vector3 DirectionControl => directionControl;
+
+        public void LoadProgress(PlayerProgress playerProgress)
+        {
+            movementSpeed = playerProgress.HeroStats.HeroMovementSpeed;
+        }
 
         private void Update()
         {
@@ -30,5 +38,6 @@ namespace CodeBase.GamePlay.Hero
             directionControl.z = movementDirection.y;
             directionControl.Normalize();
         }
+
     }
 }

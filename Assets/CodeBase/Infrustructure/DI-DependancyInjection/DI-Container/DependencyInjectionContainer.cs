@@ -16,12 +16,12 @@ namespace Assets.CodeBase.Infrustructure.DependencyInjection.DIContainer
 
         public void RegisterService<TypeService>() where TypeService : class, IService
         {
-            services.Add(typeof(TypeService), (IService)CreateImplemintation(typeof(TypeService)));
+            services.Add(typeof(TypeService), (IService)CreateImplementation(typeof(TypeService)));
         }
 
         public void RegisterService<TypeService, TypeImplemintation>() where TypeService : class, IService where TypeImplemintation : class, IService
         {
-            services.Add(typeof(TypeService), (IService)CreateImplemintation(typeof(TypeImplemintation)));
+            services.Add(typeof(TypeService), (IService)CreateImplementation(typeof(TypeImplemintation)));
         }
 
         public void UnregisterService<TypeService>() where TypeService : class, IService
@@ -41,7 +41,7 @@ namespace Assets.CodeBase.Infrustructure.DependencyInjection.DIContainer
             }
         }
 
-        private object CreateImplemintation(Type type)
+        private object CreateImplementation(Type type)
         {
             ConstructorInfo constructorInfo = type.GetConstructors().FirstOrDefault();
 
@@ -79,7 +79,7 @@ namespace Assets.CodeBase.Infrustructure.DependencyInjection.DIContainer
 
                 if (objToInject == null)
                 {
-                    throw new InvalidOperationException("Зависимость для monoBehaviour не Создана");
+                    throw new InvalidOperationException($"Зависимость для {parameterInfos[i].ParameterType} не создана");
                 }
 
                 parametres[i] = objToInject;
@@ -118,12 +118,17 @@ namespace Assets.CodeBase.Infrustructure.DependencyInjection.DIContainer
 
         public void InjectToGameObject(GameObject gameObject)
         {
-            MonoBehaviour[] monoBehaviours = gameObject.GetComponents<MonoBehaviour>();
+            MonoBehaviour[] monoBehaviours = gameObject.GetComponentsInChildren<MonoBehaviour>(true);
 
             for (int i = 0; i < monoBehaviours.Length; i++)
             {
                 InjectToMonoBehaviour(monoBehaviours[i]);
             }
+        }
+
+        public TType InstantiateAndInject<TType>()
+        {
+            return (TType) CreateImplementation(typeof(TType));
         }
 
 

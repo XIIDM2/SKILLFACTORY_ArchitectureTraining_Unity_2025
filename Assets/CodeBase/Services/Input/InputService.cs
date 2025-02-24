@@ -1,3 +1,4 @@
+using CodeBase.UI.Elements;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.Services
@@ -10,6 +11,8 @@ namespace CodeBase.Infrastructure.Services
         private bool enabled = true;
         private Vector2 GetMovementAxis()
         {
+            if (!enabled) return Vector2.zero;
+
             if (VirtualJoyStick.Value != Vector2.zero)
             {
                 return VirtualJoyStick.Value;

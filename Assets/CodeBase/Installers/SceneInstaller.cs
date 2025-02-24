@@ -1,5 +1,7 @@
 using Assets.CodeBase.Infrustructure.DependencyInjection;
 using Assets.CodeBase.Infrustructure.DependencyInjection.DIContainer;
+using Assets.CodeBase.SceneStates;
+using CodeBase.GamePlay;
 using CodeBase.Infrastructure.SceneStates;
 using CodeBase.Infrastructure.Services;
 using CodeBase.Infrastructure.Services.Factory;
@@ -11,7 +13,9 @@ namespace Assets.CodeBase.Infrustructure
 {
     public class SceneInstaller : MonoInstaller
     {
-        [SerializeField] private HeroSpawnPoint spawnPoint;
+        [SerializeField] private FinishPoint finishPoint;
+        [SerializeField] private EnemiesInBattleRange enemiesInBattleRange;
+        [SerializeField] private SceneStateMachineTicker sceneStateMachineTicker;
         public override void InstallBinding()
         {
             RegisterSceneServices();
@@ -23,7 +27,8 @@ namespace Assets.CodeBase.Infrustructure
 
         private void RegisterSceneServices()
         {
-            DependencyInjectioncontainer.RegisterService(spawnPoint);
+            DependencyInjectioncontainer.RegisterService(enemiesInBattleRange);
+            DependencyInjectioncontainer.RegisterService(sceneStateMachineTicker);
 
         }
 
@@ -31,14 +36,23 @@ namespace Assets.CodeBase.Infrustructure
         {
             DependencyInjectioncontainer.RegisterService<ISceneStateSwitcher, SceneStateMachine>();
             DependencyInjectioncontainer.RegisterService<BoostrapperSceneState>();
+            DependencyInjectioncontainer.RegisterService<ResearchSceneState>();
+            DependencyInjectioncontainer.RegisterService<BattleSceneState>();
+            DependencyInjectioncontainer.RegisterService<VictorySceneState>();
+            DependencyInjectioncontainer.RegisterService<DefeatSceneState>();
         }
 
         private void OnDestroy()
         {
-            DependencyInjectioncontainer.UnregisterService<HeroSpawnPoint>();
+            DependencyInjectioncontainer.UnregisterService<EnemiesInBattleRange>();
+            DependencyInjectioncontainer.UnregisterService<SceneStateMachineTicker>();
 
             DependencyInjectioncontainer.UnregisterService<ISceneStateSwitcher>();
             DependencyInjectioncontainer.UnregisterService<BoostrapperSceneState>();
+            DependencyInjectioncontainer.UnregisterService<ResearchSceneState>();
+            DependencyInjectioncontainer.UnregisterService<BattleSceneState>();
+            DependencyInjectioncontainer.UnregisterService<VictorySceneState>();
+            DependencyInjectioncontainer.UnregisterService<DefeatSceneState>();
         }
     }
 
